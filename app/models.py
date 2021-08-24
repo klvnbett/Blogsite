@@ -6,7 +6,7 @@ from datetime import datetime
 class Blog(db.Model):
     __tablename__ = 'blog'
 
-    id =db.column(db.Integer,primary_key=True)
+    id=db.Column(db.Integer, primary_key=True)
     blog_category=db.Column(db.String(255))
     blog_title=db.Column(db.String(255))
     blog_content=db.Column(db.String(255),min_length=100)
@@ -19,14 +19,16 @@ class Blog(db.Model):
         db.session.commit()
 
 
-class User(UserMixin,db.model):
-    __tablename__="user"
+class User(UserMixin,db.Model):
+    __tablename__="users"
 
-    id =db.Column(db.Integer,primary_key=True))
+    id =db.Column(db.Integer,primary_key=True)
     username=db.Column(db.String(255))
     email=db.Column(db.String(255))
     password_secure=db.Column(db.String(255))
     location=db.Column(db.String(255))
+
+    blog =db.relationship('Blog',backref='users',lazy='dynamic')
 
     @property
     def password(self):

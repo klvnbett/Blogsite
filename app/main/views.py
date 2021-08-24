@@ -1,8 +1,8 @@
 from flask_login import current_user,login_required
-from flask import render_template,request
+from flask import render_template,request,redirect,url_for
 from .. import db
 from .. requests import get_quote
-from .. models import Blog,Quotes,
+from .. models import Blog,Quotes
 from . import main
 from . forms import BlogForm
 
@@ -15,7 +15,7 @@ def index():
     title ='Welcome to the Best Quotes in Town'
     quote=get_quote()
 
-    return render_template('index.html'quote=quote)
+    return render_template('index.html',quote=quote)
 
 
 @main.route('/home',methods=['GET','POST'])
@@ -37,7 +37,7 @@ def main():
         return redirect(url_for('main.main_page'))
     else:
         blogs=Blog.query.order_by(Blog.posted).all()
-    return render_template('main_templates/main.html',blog_form=blog_form, blogs=blogs)
+    return render_template('main/main.html',blog_form=blog_form, blogs=blogs)
 
 
 

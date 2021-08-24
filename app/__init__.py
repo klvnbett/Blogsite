@@ -45,7 +45,7 @@ def create_app(config_name):
 
 #registering the Blue print
 
-    app.register_blueprint()
+    app.register_blueprint(main_blueprint)
 
     return app
 

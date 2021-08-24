@@ -13,6 +13,7 @@
         </div>
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav navbar-right">
+
                 {% if current_user.is_authenticated %}
                 <li class="links"><a href="{{url_for('main.profile',uname=current_user.username)}}">View Profile</a></li>
                 <li class="links"><a class="head" href="{{url_for('main.main_page')}}">Post Blog</a></li>

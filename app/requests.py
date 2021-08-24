@@ -1,4 +1,4 @@
-import urllib.request.json
+# import urllib.request.json
 from .models import Quotes
 
 
@@ -6,7 +6,7 @@ quote_url ='https://quotes.ctormconsultancy.co.uk/random.json'
 
 def get_quote():
     """
-    Function to get and consume htttp request and return a quote instance
+    Function to get and consume http request and return a quote instance
     """
 
     quotes_list=[]
