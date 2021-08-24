@@ -1,0 +1,3 @@
+Hello {{user.username}}
+Jambo and welcome to blogging site.
+You are getting this notification because you are subscribed BLOGGING SITE.

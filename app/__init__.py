@@ -7,8 +7,9 @@ from flask_mail import Mail
 
 
 
+
 bootstrap =Bootstrap()
-db =SQLALchemy()
+db = SQLAlchemy()
 mail=Mail()
 
 
@@ -37,7 +38,7 @@ def create_app(config_name):
     from .main import main as main_blueprint
     app.register_blueprint(main_blueprint)
 
-    return app
+#    return app
 
 # creating the app configurations
     app.config.from_object(config_options[config_name])

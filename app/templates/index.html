@@ -1,0 +1,18 @@
+%extends 'base.html'%} {% import 'bootstrap/wtf.html' as wtf%} {% block styles %} {{super()}}
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Kalam&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="{{url_for('static', filename='css/styles.css')}}"> {% endblock %} {%block content%}
+
+<div class='container bg-info'>
+    <div class='button'>
+    </div>
+
+    <div class="text-center">
+        <h3>Women love opportunistically. Men love idealistically</h3>
+    </div>
+    <h1 class="text-center know">Did you know?</h1>
+    <h1 class="quote">{{quote[1]}}</h1><br>
+    <h3 class="text-center">By <em>{{quote[2]}}</em></h3><br>
+</div>
+{%endblock%}
