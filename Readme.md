@@ -7,7 +7,7 @@ Kipkemoi Bett
 ## Requirements
 
 The following command installs all the application requirements
->``pip freeze -r requirements.txt``
+``pip freeze -r requirements.txt``
 
 
 ## Installations
