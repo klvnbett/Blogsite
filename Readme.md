@@ -29,7 +29,7 @@ After extracting the files,
 ``source virtual/bin/activate.``
 
 4. Running the application
-``python3 manage.py server``
+``python3 manage.py runserver``
 
 
 ## Technologies used
