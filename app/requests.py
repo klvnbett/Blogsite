@@ -9,7 +9,7 @@ def get_quote():
     Function to get and consume http request and return a quote instance
     """
 
-    def get_quote():
+def get_quote():
     quotes_list=[]
     new_quote_url=QUOTE_URL.format()
     with urllib.request.urlopen(new_quote_url) as url:

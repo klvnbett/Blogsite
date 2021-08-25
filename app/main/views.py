@@ -39,7 +39,7 @@ def main():
         blogs=Blog.query.order_by(Blog.posted).all()
     return render_template('main/main.html',blog_form=blog_form, blogs=blogs)
 
-@main.route('/home/comment/</int:id')
+@main.route('/comment/</int:id')
 @login_required
 def comments(id):
     comment_form=comment()
