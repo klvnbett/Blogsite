@@ -34,10 +34,21 @@ def main():
         db.session.add(new_blog)
         db.session.commit()
         
-        return redirect(url_for('main.main_page'))
+        return redirect(url_for('main.main'))
     else:
         blogs=Blog.query.order_by(Blog.posted).all()
     return render_template('main/main.html',blog_form=blog_form, blogs=blogs)
+
+@main.route('/home/comment/</int:id')
+@login_required
+def comments(id):
+    comment_form=comment()
+    if blog_form.validate_on_submit:
+        comment=comment_form.blog_comment.data
+
+
+    return render_template('main_templates/comment.html',comment_form=comment_form)
+
 
 
 
