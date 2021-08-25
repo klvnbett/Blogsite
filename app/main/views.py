@@ -4,7 +4,7 @@ from .. import db
 from .. requests import get_quote
 from .. models import Blog,Quotes,User,Comment
 from . import main
-from . forms import BlogForm,CommentForm
+# from . forms import BlogForm,CommentForm
 from ..email import mail_message
 
 @main.route('/')
