@@ -9,9 +9,9 @@ class BlogForm(FlaskForm):
         blog_content=TextAreaField('Content',validators=[Required()])
         submit =SubmitField('Submit')
 
-class Comment(FlaskForm):
-        blog_comment=TextAreaField('comment',validators=[Required()])
-        submit=SubmitField('Post your Reservations')
+class CommentForm(FlaskForm):
+    comment_data=TextAreaField('Write your comment',validators=[Required()])
+    submit=SubmitField('Post your Reservations')
 class DeleteBlog(FlaskForm):
     submit=SubmitField('Delete')
     

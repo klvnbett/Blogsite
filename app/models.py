@@ -9,6 +9,7 @@ from . import db, login_manager
 
 class User(UserMixin,db.Model):
     '''
+    root to add table user to the models
     '''
     __tablename__="user"
     id=db.Column(db.Integer, primary_key=True)

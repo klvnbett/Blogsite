@@ -1,0 +1,3 @@
+Hello {{user.username}}
+
+Your post have been received. thanks for being with us.
