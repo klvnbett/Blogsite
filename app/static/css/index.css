@@ -1,0 +1,10 @@
+body {
+    background-color: skyblue;
+    font-family: 'Times New Roman', Times, serif;
+    font-style: italic;
+}
+
+.head {
+    color: magenta;
+    font-size: 25px;
+}

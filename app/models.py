@@ -6,10 +6,8 @@ from werkzeug.security import check_password_hash, generate_password_hash
 from . import db, login_manager
 
 
-
 class User(UserMixin,db.Model):
     '''
-    root to add table user to the models
     '''
     __tablename__="user"
     id=db.Column(db.Integer, primary_key=True)
@@ -95,3 +93,15 @@ class Comment(db.Model):
     
     def __repr__(self):
         return f"Comment {self.comments}, {self.posted}"
+    
+    # @classmethod
+    # def get_comments(cls,id):
+    #     response = []
+    #     for comment in cls.all_comments:
+    #         if comment.blog_id==id:
+    #             response.append(comment)
+    #     return response
+            
+    
+    
+ 

@@ -1,21 +1,22 @@
-from flask_login import current_user,login_required
-from flask import render_template,request,redirect,url_for
-from .. import db
-from .. requests import get_quote
-from .. models import Blog,Quotes,User,Comment
+from flask import render_template, request, redirect, url_for,abort
+from flask_login import current_user, login_required
+
+from .. import db,photos
+from ..models import Blog, Quotes,Comment,User
+from ..requests import get_quote
 from . import main
-from . forms import BlogForm,CommentForm
 from ..email import mail_message
+from .forms import BlogForm,CommentForm
 
-@main.route('/')
+#views
 
+@main.route('/',methods=['GET'])
 def index():
-    """
-    Root function that returns index page and the date
-    """
-    title ='Welcome to the Best Quotes in Town'
-    quote=get_quote()
-
+    '''
+    View root page function that returns the index page and its data.
+    '''
+    title='Welcome to blogging site'
+    quote = get_quote()
     return render_template('index.html',quote=quote)
 
 
@@ -29,6 +30,7 @@ def main_page():
         blog_content=blog_form.blog_content.data
         
         new_blog=Blog(blog_category=blog_category,blog_title=blog_title,blog_content=blog_content)
+       
         
         new_blog.save_blog()
         db.session.add(new_blog)
@@ -37,7 +39,7 @@ def main_page():
         return redirect(url_for('main.main_page'))
     else:
         blogs=Blog.query.order_by(Blog.posted).all()
-    return render_template('main_temp/main.html',blog_form=blog_form, blogs=blogs)
+    return render_template('main_templates/main.html',blog_form=blog_form, blogs=blogs)
 
 
 @main.route('/new_comment/<int:blog_id>', methods = ['GET', 'POST'])
@@ -57,7 +59,7 @@ def new_comment(blog_id):
 
         return redirect(url_for('main.new_comment',blog_id=blog_id))
     title='New Blog'
-    return render_template('main_temp/new_comment.html',comment=comm,title=title,comment_form = form,blog_id=blog_id)
+    return render_template('main_templates/new_comment.html',comment=comm,title=title,comment_form = form,blog_id=blog_id)
 
 
 @main.route('/user/<uname>')
