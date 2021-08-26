@@ -6,7 +6,7 @@ from app.models import Blog, Comment, Quotes, User
 from config import config_options
 
 
-app = create_app('production')
+app = create_app('development')
 
 manager = Manager(app)
 manager.add_command('server', Server)
