@@ -1,0 +1,31 @@
+{%import 'bootstrap/wtf.html' as wtf%} {%extends 'base.html'%} {%block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            {{wtf.quick_form(blog_form)}}
+        </div>
+        <div class="col-md-6 posts">
+            <h1 class="text-center">POSTS</h1>
+            {%for blog in blogs%}
+            <div class="content bg-info">
+                <div>
+                    <h3 class="">{{blog.blog_title}}</h3>
+                </div>
+                <div>
+                    <h4>{{blog.blog_category}}</h4>
+                </div>
+                <div>
+                    {{blog.blog_content}}<br><br><br>
+                    <em>{{current_user}}</em>
+                    <span style="float:right; clear:right; ">Posted on {{blog.posted.strftime('%Y-%m-%d')}}
+                </div>
+                <div class="">
+                    <a href="/new_comment/{{blog.id}}">Leave a comment</a>
+                </div>
+                </span>
+                </div>
+                <hr> {%endfor%}
+            </div>
+        </div>
+    </div>
+    {%endblock%}
